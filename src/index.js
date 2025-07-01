@@ -1,11 +1,12 @@
 import guitar from "./assets/guitar.png";
 import c from "./assets/c.png";
 import music from "./assets/musik.png";
-import swegger from "./assets/swegger.png";
+// import swegger from "./assets/swegger.png";
+import drakorinaja from "./assets/drakorinaja.png"
 export const projects = [
     {
       title: "HayMart - REST API",
-      image: swegger,
+      image: drakorinaja,
       description:
         "HayMart POS API adalah RESTful backend berbasis Spring Boot 3.4.4 untuk mendukung aplikasi kasir (POS) modern. Menyediakan autentikasi JWT, manajemen kasir & produk, transaksi pembelian, laporan penjualan, dan dokumentasi Swagger. Cocok untuk minimarket, apotek, atau toko retail lainnya.",
       tech: ["JAVA", "SpringBoot", "MySQL", "JPA/Hibernate", "Swegger", "Apache PDFBox", "Spring MailSender", "Spring Security + JWT", "Apache POI"],
