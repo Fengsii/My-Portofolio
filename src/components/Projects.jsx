@@ -1,425 +1,310 @@
-// /* eslint-disable no-unused-vars */
-// import { motion } from "framer-motion";
-// import { projects } from "..";
-
-// const Projects = () => {
-//   return (
-//     <section className="text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-neutral-800">
-//       <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-//         Projects
-//       </h1>
-//       <div className="max-w-7xl mx-auto flex flex-col gap-16">
-//         {projects.map((p, index) => (
-//           <motion.div
-//             key={index}
-//             className="flex flex-col lg:flex-row gap-8 items-center bg-neutral-900 p-6 rounded-2xl shadow-[0_0_30px_#0ff5]"
-//             initial={{ opacity: 0, y: 40 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1, delay: index * 0.2 }}
-//             viewport={{ once: true }}
-//           >
-//             <motion.img
-//               src={p.image}
-//               alt={p.title}
-//               className="rounded-xl object-cover w-full max-w-md aspect-video border-4 border-cyan-500 transition-transform hover:scale-105"
-//               initial={{ opacity: 0, scale: 0.9 }}
-//               whileInView={{ opacity: 1, scale: 1 }}
-//               transition={{ duration: 0.8 }}
-//               viewport={{ once: true }}
-//             />
-
-//             <motion.div
-//               className="w-full lg:w-1/2 text-center lg:text-left"
-//               initial={{ opacity: 0, y: 40 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 1, delay: 0.3 }}
-//               viewport={{ once: true }}
-//             >
-//               <h2 className="text-2xl sm:text-3xl font-bold mb-3 bg-gradient-to-r from-teal-400 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
-//                 {p.title}
-//               </h2>
-//               <p className="text-neutral-300 mb-4 text-sm sm:text-base">
-//                 {p.description}
-//               </p>
-//               <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-4">
-//                 {p.tech.map((t, idx) => (
-//                   <span
-//                     key={idx}
-//                     className="bg-[#1A1A40] text-[#7DD3FC] border border-[#7DD3FC] text-xs sm:text-sm px-2 py-1 rounded"
-//                   >
-//                     {t}
-//                   </span>
-//                 ))}
-//               </div>
-//               <div className="flex justify-center lg:justify-start gap-4 text-sm">
-//                 <a
-//                   href={p.github}
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                   className="text-cyan-400 hover:underline"
-//                 >
-//                   GitHub
-//                 </a>
-//                 {p.visit && (
-//                   <a
-//                     href={p.visit}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="text-cyan-400 hover:underline"
-//                   >
-//                     Live Demo
-//                   </a>
-//                 )}
-//               </div>
-//             </motion.div>
-//           </motion.div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Projects;
-
-
-
-
-
-
 /* eslint-disable no-unused-vars */
-import { motion } from "framer-motion";
-import { projects } from "..";
+import drakorinajaImg from '../assets/drakorinaja.png';
+import fashionstoreImg from '../assets/FashionStore.jpg';
+import bbibbstoreImg from '../assets/BbibbStore.jpg';
+import restapiImg from '../assets/RestApi.jpg';
+
+import { motion } from 'framer-motion';
 import { 
   FaGithub, 
   FaExternalLinkAlt, 
   FaCode,
-  FaJava,
   FaDatabase,
-  FaShieldAlt
-} from "react-icons/fa";
-import { SiSpring, SiSwagger, SiMysql } from "react-icons/si";
-import { TbFileReport } from "react-icons/tb";
+  FaStar,
+  FaEye
+} from 'react-icons/fa';
+import { SiMysql } from 'react-icons/si';
+
+// Mock data untuk demo
+const projects = [
+  {
+    id: 1,
+    title: "DrakorinAja",
+    image: drakorinajaImg,
+    github: "https://github.com/Fengsii/BETA-TEST-Watch-Drakorin.git",
+    visit: null,
+    techStack: [
+      { icon: <FaCode className="text-red-400" />, name: "HTML/CSS/JS" }
+    ],
+    description: "Aplikasi streaming drakor berbasis web menggunakan HTML, CSS, dan JavaScript."
+  },
+  {
+    id: 2,
+    title: "FashionStore",
+    image: fashionstoreImg,
+    github: "https://github.com/Fengsii/FhasionStoreDesktop.git",
+    visit: null,
+    techStack: [
+      { icon: <FaCode className="text-blue-400" />, name: "C#" },
+      { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
+      { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
+    ],
+    description: "Aplikasi desktop fashion store menggunakan C# dan .NET Framework."
+  },
+  {
+    id: 3,
+    title: "BbbibbStore",
+    image: bbibbstoreImg,
+    github: "https://github.com/Fengsii/BbibbStore",
+    visit: null,
+    techStack: [
+      { icon: <FaCode className="text-blue-400" />, name: "C#" },
+      { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
+      { icon: <FaDatabase className="text-green-400" />, name: "SQL Server" }
+    ],
+    description: "E-commerce platform dibangun dengan ASP.NET Core dan SQL Server."
+  },
+  {
+    id: 4,
+    title: "RestAPI",
+    image: restapiImg,
+    github: "https://github.com/Fengsii/UTSCSharp2025.git",
+    visit: null,
+    techStack: [
+      { icon: <FaCode className="text-blue-400" />, name: "C#" },
+      { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
+      { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
+    ],
+    description: "RESTful API untuk manajemen tugas menggunakan Spring Boot dan MySQL."
+  }
+];
 
 const Projects = () => {
+  // Animasi yang lebih ringan
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      y: 50, 
+      opacity: 0
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  // Handler untuk membuka GitHub
+  const handleGithubClick = (githubUrl) => {
+    if (githubUrl) {
+      window.open(githubUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  // Handler untuk demo
+  const handleDemoClick = (demoUrl) => {
+    if (demoUrl) {
+      window.open(demoUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <motion.section 
       id="projects"
-      className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b"
+      className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      {/* Floating background elements */}
-      <motion.div 
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
+      {/* Background Elements - Dipermudah */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl"
+          className="absolute top-20 left-20 w-64 h-64 rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, transparent 70%)'
+          }}
           animate={{
-            x: [0, 20, 0],
-            y: [0, 15, 0],
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.3, 0.2]
           }}
           transition={{
-            duration: 15,
+            duration: 8,
             repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear"
+            ease: "easeInOut"
           }}
         />
+        
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-purple-500/10 blur-3xl"
+          className="absolute bottom-20 right-20 w-80 h-80 rounded-full opacity-15"
+          style={{
+            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%)'
+          }}
           animate={{
-            x: [0, -20, 0],
-            y: [0, -15, 0],
+            scale: [1, 0.9, 1],
+            opacity: [0.15, 0.25, 0.15]
           }}
           transition={{
-            duration: 18,
+            duration: 10,
             repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear",
-            delay: 3
+            ease: "easeInOut",
+            delay: 2
           }}
         />
-      </motion.div>
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        {/* Header Section */}
         <motion.div
-          className="mb-20 text-center"
+          className="text-center mb-20"
           initial={{ y: -30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%'],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear"
-            }}
+            className="text-5xl sm:text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
           >
             Featured Projects
           </motion.h1>
+          
           <motion.div 
-            className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            className="h-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full mx-auto w-48"
+            initial={{ width: 0 }}
+            whileInView={{ width: '12rem' }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           />
+          
+          <motion.p
+            className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Discover my latest work in web development, from frontend to backend solutions
+          </motion.p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 gap-24">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              className="group relative overflow-hidden rounded-3xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              key={project.id}
+              className="group relative"
+              variants={cardVariants}
               whileHover={{ 
                 y: -10,
-                boxShadow: '0 20px 40px rgba(8, 145, 178, 0.2)'
+                transition: { duration: 0.2 }
               }}
-              transition={{ 
-                duration: 0.6, 
-                delay: index * 0.1,
-                hover: { duration: 0.3 }
-              }}
-              viewport={{ once: true, margin: "-100px" }}
             >
-              {/* Glow effect */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                initial={{ opacity: 0 }}
-              />
-
-              <div className="flex flex-col lg:flex-row h-full">
+              <motion.div
+                className="relative overflow-hidden rounded-2xl bg-gray-800/50 border border-gray-700 shadow-xl backdrop-blur-sm"
+                whileHover={{
+                  boxShadow: '0 20px 40px rgba(14, 165, 233, 0.2)',
+                  borderColor: 'rgba(14, 165, 233, 0.4)',
+                }}
+                transition={{ duration: 0.3 }}
+              >
                 {/* Project Image */}
-                <motion.div 
-                  className="lg:w-1/2 relative overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <motion.img
+                <div className="relative overflow-hidden aspect-video">
+                  <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover aspect-video lg:aspect-auto lg:h-[400px]"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.5 }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent flex items-end p-8">
-                    <motion.div
-                      initial={{ y: 20 }}
-                      whileInView={{ y: 0 }}
-                      transition={{ delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >
-                      <h2 className="text-2xl font-bold text-white mb-2">{project.title}</h2>
-                      <div className="flex gap-2">
-                        <motion.span
-                          className="text-xs px-2 py-1 rounded-full bg-gray-800/80 text-cyan-300"
-                          whileHover={{ 
-                            scale: 1.1,
-                            backgroundColor: 'rgba(8, 145, 178, 0.3)'
-                          }}
-                        >
-                          REST API
-                        </motion.span>
-                        <motion.span
-                          className="text-xs px-2 py-1 rounded-full bg-gray-800/80 text-purple-300"
-                          whileHover={{ 
-                            scale: 1.1,
-                            backgroundColor: 'rgba(124, 58, 237, 0.3)'
-                          }}
-                        >
-                          Backend
-                        </motion.span>
-                      </div>
-                    </motion.div>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  
+                  {/* Featured Badge */}
+                  <div className="absolute top-4 right-4">
+                    <div className="bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-cyan-300 border border-cyan-400/30">
+                      <FaStar className="inline mr-1" />
+                      Featured
+                    </div>
                   </div>
-                </motion.div>
+                  
+                  {/* View count */}
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white/80">
+                    <FaEye className="text-sm" />
+                    <span className="text-sm">{Math.floor(Math.random() * 1000) + 500}</span>
+                  </div>
+                </div>
 
                 {/* Project Content */}
-                <div className="lg:w-1/2 p-10 flex flex-col justify-center">
-                  <div className="mb-8">
-                    <motion.div 
-                      className="flex items-center gap-3 mb-6"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                      <motion.div
-                        className="p-2 rounded-lg bg-cyan-500/10 border border-cyan-400/30"
-                        whileHover={{ 
-                          rotate: 15,
-                          scale: 1.1,
-                          backgroundColor: 'rgba(8, 145, 178, 0.2)'
-                        }}
-                        animate={{
-                          rotate: [0, 5, 0, -5, 0],
-                        }}
-                        transition={{
-                          rotate: {
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "linear"
-                          },
-                          hover: { duration: 0.3 }
-                        }}
-                      >
-                        <FaCode className="text-cyan-400 text-xl" />
-                      </motion.div>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                        {project.title}
-                      </h2>
-                    </motion.div>
-                    
-                    <motion.p 
-                      className="text-gray-300 mb-8 leading-relaxed"
-                      whileHover={{ 
-                        color: '#f3f4f6',
-                        transition: { duration: 0.3 }
-                      }}
-                    >
-                      HayMart POS API adalah RESTful backend berbasis Spring Boot 3.4.4 untuk mendukung 
-                      aplikasi kasir (POS) modern. Menyediakan autentikasi JWT, manajemen kasir & produk, 
-                      transaksi pembelian, laporan penjualan, dan dokumentasi Swagger. Cocok untuk minimarket, 
-                      apotek, atau toko retail lainnya.
-                    </motion.p>
-                  </div>
-
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
                   {/* Tech Stack */}
-                  <div className="mb-10">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-4 flex items-center gap-2">
-                      <motion.span
-                        animate={{ rotate: [0, 10, 0] }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          repeatType: "mirror"
-                        }}
-                      >
-                        <FaCode className="text-cyan-400" />
-                      </motion.span>
+                  <div className="mb-6">
+                    <h4 className="text-xs font-semibold text-cyan-400 mb-3 flex items-center gap-2">
+                      <FaCode className="text-cyan-400" />
                       TECH STACK
                     </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {[
-                        { icon: <FaJava className="text-red-400" />, name: "Java" },
-                        { icon: <SiSpring className="text-green-500" />, name: "Spring Boot" },
-                        { icon: <SiMysql className="text-blue-400" />, name: "MySQL" },
-                        { icon: <FaDatabase className="text-amber-500" />, name: "JPA/Hibernate" },
-                        { icon: <SiSwagger className="text-emerald-400" />, name: "Swagger" },
-                        { icon: <FaShieldAlt className="text-blue-300" />, name: "Spring Security" },
-                        { icon: <TbFileReport className="text-red-300" />, name: "Apache POI" }
-                      ].map((tech, idx) => (
-                        <motion.div
-                          key={idx}
-                          className="flex items-center gap-2 bg-gray-700/30 px-3 py-2 rounded-lg border border-gray-600 cursor-default"
-                          whileHover={{ 
-                            y: -3,
-                            backgroundColor: 'rgba(6, 182, 212, 0.2)',
-                            borderColor: '#06b6d4',
-                            boxShadow: '0 5px 15px rgba(8, 145, 178, 0.2)'
-                          }}
-                          animate={{
-                            y: [0, -2, 0],
-                          }}
-                          transition={{
-                            y: {
-                              duration: 3 + idx,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            },
-                            hover: { duration: 0.3 }
-                          }}
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech, idx) => (
+                        <div
+                          key={`${project.id}-${idx}`}
+                          className="flex items-center gap-1 bg-gray-700/50 px-2 py-1 rounded-lg text-xs border border-gray-600 hover:border-cyan-400 transition-colors duration-200"
                         >
-                          <motion.span
-                            animate={{ rotate: [0, 10, 0] }}
-                            transition={{
-                              duration: 5 + idx,
-                              repeat: Infinity,
-                              repeatType: "mirror"
-                            }}
-                          >
-                            {tech.icon}
-                          </motion.span>
-                          <span className="text-sm text-gray-200">{tech.name}</span>
-                        </motion.div>
+                          {tech.icon}
+                          <span className="text-gray-200">{tech.name}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
-
-                  {/* Project Links */}
-                  <div className="flex gap-4">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-5 py-2.5 bg-cyan-600/90 hover:bg-cyan-700 text-white rounded-lg transition-all duration-300 relative overflow-hidden"
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: '0 5px 15px rgba(8, 145, 178, 0.4)'
-                      }}
-                      whileTap={{ scale: 0.95 }}
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <motion.button
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all duration-200 text-sm border border-gray-600 hover:border-cyan-400"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleGithubClick(project.github)}
                     >
-                      {/* Button shine effect */}
-                      <motion.span
-                        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100"
-                        initial={{ x: '-100%' }}
-                        whileHover={{
-                          x: '100%',
-                          transition: { duration: 0.8 }
-                        }}
-                      />
-                      <FaGithub className="relative z-10" />
-                      <span className="relative z-10">View Code</span>
-                    </motion.a>
+                      <FaGithub />
+                      <span>Code</span>
+                    </motion.button>
                     
                     {project.visit && (
-                      <motion.a
-                        href={project.visit}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-5 py-2.5 bg-purple-600/90 hover:bg-purple-700 text-white rounded-lg transition-all duration-300 relative overflow-hidden"
-                        whileHover={{ 
-                          scale: 1.05,
-                          boxShadow: '0 5px 15px rgba(124, 58, 237, 0.4)'
-                        }}
-                        whileTap={{ scale: 0.95 }}
+                      <motion.button
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white rounded-lg transition-all duration-200 text-sm"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleDemoClick(project.visit)}
                       >
-                        {/* Button shine effect */}
-                        <motion.span
-                          className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100"
-                          initial={{ x: '-100%' }}
-                          whileHover={{
-                            x: '100%',
-                            transition: { duration: 0.8 }
-                          }}
-                        />
-                        <FaExternalLinkAlt className="relative z-10" />
-                        <span className="relative z-10">Live Demo</span>
-                      </motion.a>
+                        <FaExternalLinkAlt />
+                        <span>Demo</span>
+                      </motion.button>
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+        
+        
       </div>
     </motion.section>
   );
 };
 
 export default Projects;
-
-

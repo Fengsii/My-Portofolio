@@ -409,7 +409,7 @@ const Header = () => {
           initial="initial"
           animate="animate"
         >
-          My Portfolio
+          MY PORTOFOLIO
         </motion.h1>
         {/* Placeholder for logo image */}
         {/* <img className="mx-2 w-10 h-10" src="" alt="Portfolio Logo" /> */}
@@ -423,19 +423,19 @@ const Header = () => {
       >
         {[
           {
-            href: "https://www.linkedin.com/in/ahmad-wahyudi-tanjung-b09377313/",
+            href: "https://www.linkedin.com/in/efengsi-rahmanto-zalukhu-7a19a2363/",
             icon: FaLinkedin,
             color: "text-blue-400",
             label: "Visit LinkedIn Profile"
           },
           {
-            href: "https://github.com/Wahyudi120505",
+            href: "https://github.com/Fengsii",
             icon: FaGithub,
             color: "text-slate-400",
             label: "Visit GitHub Profile"
           },
           {
-            href: "https://www.instagram.com",
+            href: "https://www.instagram.com/fengsii_rzzz?igsh=MWlwNXJybDgyMnJzNw==",
             icon: FaInstagram,
             color: "text-red-400",
             label: "Visit Instagram Profile"
