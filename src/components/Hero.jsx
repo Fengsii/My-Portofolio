@@ -190,7 +190,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Hi, I'm
+             
             </motion.span>
             <motion.span 
               className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-transparent relative"
