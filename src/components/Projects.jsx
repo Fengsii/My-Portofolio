@@ -10,8 +10,7 @@ import {
   FaExternalLinkAlt, 
   FaCode,
   FaDatabase,
-  FaStar,
-  FaEye
+  FaStar
 } from 'react-icons/fa';
 import { SiMysql } from 'react-icons/si';
 
@@ -232,12 +231,6 @@ const Projects = () => {
                       <FaStar className="inline mr-1" />
                       Featured
                     </div>
-                  </div>
-                  
-                  {/* View count */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white/80">
-                    <FaEye className="text-sm" />
-                    <span className="text-sm">{Math.floor(Math.random() * 1000) + 500}</span>
                   </div>
                 </div>
 
