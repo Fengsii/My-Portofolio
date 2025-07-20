@@ -1,21 +1,31 @@
 import profileImg from '../assets/pp.jpg';
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, useAnimation } from 'framer-motion';
 
 const About = () => {
-
   // eslint-disable-next-line no-unused-vars
   const [scrollY, setScrollY] = useState(0);
   const { scrollYProgress } = useScroll();
-  
-
   // eslint-disable-next-line no-unused-vars
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
- 
   // eslint-disable-next-line no-unused-vars
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
   // Skills data with enhanced styling
   const skills = [
@@ -34,12 +44,6 @@ const About = () => {
     { number: "Eager", label: "To Learn" }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -53,14 +57,13 @@ const About = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 60, rotateX: -15 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      rotateX: 0,
       transition: { 
-        duration: 0.8, 
-        ease: [0.2, 0.65, 0.3, 0.9] 
+        duration: 0.6, 
+        ease: "easeOut"
       }
     }
   };
@@ -78,21 +81,18 @@ const About = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      scale: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.8
+        duration: 0.6,
+        ease: "easeOut"
       }
     },
     hover: {
       scale: 1.05,
-      y: -10,
+      y: -5,
       transition: { duration: 0.3 }
     }
   };
@@ -102,8 +102,9 @@ const About = () => {
       id="about"
       className="min-h-screen relative overflow-hidden bg-gradient-to-br"
       initial="hidden"
-      animate="visible"
+      animate={controls}
       variants={containerVariants}
+      ref={ref}
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -249,6 +250,7 @@ const About = () => {
                       variants={cardVariants}
                       custom={index}
                       whileHover="hover"
+                      transition={{ delay: index * 0.1 }}
                     >
                       <div className="flex items-center space-x-2 sm:space-x-3">
                         <span className="text-lg sm:text-2xl">{skill.icon}</span>
@@ -273,6 +275,7 @@ const About = () => {
                     variants={cardVariants}
                     custom={index}
                     whileHover="hover"
+                    transition={{ delay: index * 0.1 }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="relative text-center">
