@@ -48,10 +48,11 @@ const projects = [
     visit: null,
     techStack: [
       { icon: <FaCode className="text-blue-400" />, name: "C#" },
+      { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
       { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
       { icon: <FaDatabase className="text-green-400" />, name: "SQL Server" }
     ],
-    description: "E-commerce platform dibangun dengan ASP.NET Core dan SQL Server."
+    description: "E-commerce platform dibangun dengan .Net, ASP.NET Core dan SQL Server."
   },
   {
     id: 4,
@@ -62,9 +63,10 @@ const projects = [
     techStack: [
       { icon: <FaCode className="text-blue-400" />, name: "C#" },
       { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
+      { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
       { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
     ],
-    description: "RESTful API untuk manajemen tugas menggunakan Spring Boot dan MySQL."
+    description: "RESTful API untuk manajemen tugas menggunakan .Net, ASP.NET Core dan MySQL."
   }
 ];
 
