@@ -31,9 +31,9 @@ const About = () => {
   const skills = [
     { name: "C#", color: "from-purple-500/20 to-indigo-500/30", text: "text-purple-400", icon: "🔷" },
     { name: "ASP.NET Core", color: "from-blue-500/20 to-cyan-500/30", text: "text-blue-400", icon: "🌐" },
-    { name: "Microservices", color: "from-blue-500/20 to-indigo-500/30", text: "text-blue-400", icon: "🏗️" },
+    // { name: "Microservices", color: "from-blue-500/20 to-indigo-500/30", text: "text-blue-400", icon: "🏗️" },
     { name: "REST API", color: "from-purple-500/20 to-violet-500/30", text: "text-purple-400", icon: "🔌" },
-    { name: "Docker", color: "from-cyan-500/20 to-teal-500/30", text: "text-cyan-400", icon: "🐳" },
+    // { name: "Docker", color: "from-cyan-500/20 to-teal-500/30", text: "text-cyan-400", icon: "🐳" },
     { name: "Problem Solving", color: "from-yellow-500/20 to-orange-500/30", text: "text-yellow-400", icon: "🧩" },
   ];
 
