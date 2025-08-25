@@ -81,7 +81,7 @@ const projects = [
       { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
        { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
     ],
-    description: "CareerConnect adalah website pencarian lowongan kerja dengan tiga role: User, Perusahaan, dan Super Admin. Dibangun menggunakan C# dengan Framework .NET & ASP.NET Core dengan MySQL sebagai database."
+    description: "CareerConnect adalah website pencarian lowongan kerja. Dibangun menggunakan C# dengan Framework .NET & ASP.NET Core dengan MySQL sebagai database."
   },
 ];
 
