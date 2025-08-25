@@ -3,6 +3,7 @@ import drakorinajaImg from '../assets/drakorinaja.png';
 import fashionstoreImg from '../assets/FashionStore.jpg';
 import bbibbstoreImg from '../assets/BbibbStore.jpg';
 import restapiImg from '../assets/RestApi.jpg';
+import CarrerConnect from "../assets/CarrerConnect.jpg"
 
 import { motion } from 'framer-motion';
 import { 
@@ -67,7 +68,21 @@ const projects = [
       { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
     ],
     description: "RESTful API untuk manajemen tugas menggunakan .Net, ASP.NET Core dan MySQL."
-  }
+  },
+  {
+    id: 5,
+    title: "CareerConnect",
+    image: CarrerConnect,
+    github: "https://github.com/Fengsii/BbibbJobStreetJwtTokenRazor.git",
+    visit: null,
+    techStack: [
+      { icon: <FaCode className="text-blue-400" />, name: "C#" },
+      { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
+      { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
+       { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
+    ],
+    description: "CareerConnect adalah website pencarian lowongan kerja dengan tiga role: User, Perusahaan, dan Super Admin. Dibangun menggunakan C# dengan Framework .NET & ASP.NET Core dengan MySQL sebagai database."
+  },
 ];
 
 const Projects = () => {
