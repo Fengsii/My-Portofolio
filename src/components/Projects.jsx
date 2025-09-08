@@ -3,7 +3,7 @@ import drakorinajaImg from '../assets/drakorinaja.png';
 import fashionstoreImg from '../assets/FashionStore.jpg';
 import bbibbstoreImg from '../assets/BbibbStore.jpg';
 import restapiImg from '../assets/RestApi.jpg';
-import CarrerConnect from "../assets/CarrerConnect.jpg";
+import CarrerConnect from "../assets/CareerConnect.jpg";
 import luxora from "../assets/luxora.jpg";
 
 import { motion } from 'framer-motion';
@@ -70,20 +70,6 @@ const projects = [
     ],
     description: "RESTful API untuk manajemen tugas menggunakan .Net, ASP.NET Core dan MySQL."
   },
-  // {
-  //   id: 5,
-  //   title: "CareerConnect",
-  //   image: CarrerConnect,
-  //   github: "https://github.com/Fengsii/BbibbJobStreetJwtTokenRazor.git",
-  //   visit: null,
-  //   techStack: [
-  //     { icon: <FaCode className="text-blue-400" />, name: "C#" },
-  //     { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
-  //     { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
-  //      { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
-  //   ],
-  //   description: "CareerConnect adalah website pencarian lowongan kerja. Dibangun menggunakan C# dengan Framework .NET & ASP.NET Core dengan MySQL sebagai database."
-  // },
   {
     id: 5,
     title: "LuxoraStore",
@@ -98,20 +84,20 @@ const projects = [
     ],
     description: "LuxoraStore adalah platform e-commerce fashion modern yang menyediakan koleksi produk fashion terkini dengan pengalaman berbelanja yang elegan dan user-friendly."
   },
-  // {
-  //   id: 5,
-  //   title: "CareerConnect",
-  //   image: CarrerConnect,
-  //   github: "https://github.com/Fengsii/BbibbJobStreetJwtTokenRazor.git",
-  //   visit: null,
-  //   techStack: [
-  //     { icon: <FaCode className="text-blue-400" />, name: "C#" },
-  //     { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
-  //     { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
-  //      { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
-  //   ],
-  //   description: "CareerConnect adalah website pencarian lowongan kerja. Dibangun menggunakan C# dengan Framework .NET & ASP.NET Core dengan MySQL sebagai database."
-  // },
+  {
+    id: 6,
+    title: "CareerConnect",
+    image: CarrerConnect,
+    github: "https://github.com/Fengsii/BbibbJobStreetJwtTokenRazor.git",
+    visit: null,
+    techStack: [
+      { icon: <FaCode className="text-blue-400" />, name: "C#" },
+      { icon: <FaDatabase className="text-yellow-400" />, name: ".NET" },
+      { icon: <FaCode className="text-blue-500" />, name: "ASP.NET Core" },
+       { icon: <SiMysql className="text-blue-400" />, name: "MySQL" }
+    ],
+    description: "CareerConnect adalah website pencarian lowongan kerja. Dibangun menggunakan C# dengan Framework .NET & ASP.NET Core dengan MySQL sebagai database."
+  },
 ];
 
 const Projects = () => {
